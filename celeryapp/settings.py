@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -84,10 +86,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_name',
+        'NAME': 'database-name',
         'USER': 'username',
-        #'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
+        'PASSWORD': 'password',
+        'HOST': '172.18.0.3',
         'PORT': '5432',
     }
 }
@@ -132,8 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Celery base setup
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://172.19.0.2:6379'
+CELERY_RESULT_BACKEND = 'redis://172.19.0.2:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
